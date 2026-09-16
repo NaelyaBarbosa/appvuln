@@ -1,0 +1,15 @@
+rules:
+  - id: python-os-system
+    languages:
+      - python
+    message: "Uso de os.system() detectado. Avalie risco de command injection."
+    severity: WARNING
+    patterns:
+      - pattern: os.system(...)
+      - pattern: subprocess.run($CMD,user_input,shell=True)
+      - pattern: os.popen(...)
+
+rules:
+  - id: python-sql-string-concat
+    languages:
+      - python
